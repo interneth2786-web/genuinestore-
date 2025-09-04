@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Place Order Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="tel"], input[type="number"], select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            font-size: 16px;
+        }
+        input[type="text"]::placeholder, input[type="tel"]::placeholder, input[type="number"]::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(45deg, #fe6b8b 30%, #ff8e53 90%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+        .payment-radio {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .payment-radio label {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-weight: 500;
+        }
+        .description-text {
+            color: #fff;
+            font-size: 0.875rem; /* text-sm */
+            margin-top: 0.25rem; /* mt-1 */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="text-3xl font-bold text-white text-center mb-8">Place Order Details</h1>
+        <form action="https://script.google.com/macros/s/AKfycbyxSoGX03ZpAyYg-jzFTz7mU_o1eBZlYT3hiLT2f2c19ZOSIDryVsJswND9iLpTge3O/exec" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+            </div>
+
+            <fieldset class="form-group">
+                <legend class="text-white font-semibold mb-4">Address</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="pincode">Pincode</label>
+                        <input type="number" id="pincode" name="pincode" required placeholder="e.g., 123456" />
+                    </div>
+                    <div>
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" required placeholder="e.g., Mumbai" />
+                    </div>
+                    <div>
+                        <label for="state">State</label>
+                        <input type="text" id="state" name="state" required placeholder="e.g., Maharashtra" />
+                    </div>
+                    <div>
+                        <label for="houseNo">House No. / Building Name</label>
+                        <input type="text" id="houseNo" name="houseNo" required placeholder="e.g., Bldg 123" />
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="roadName">Road Name / Area / Colony</label>
+                    <input type="text" id="roadName" name="roadName" required placeholder="e.g., MG Road" />
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="mobile">Mobile No.</label>
+                <input type="tel" id="mobile" name="mobile" required placeholder="e.g., 9876543210" />
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" name="quantity" required placeholder="Enter quantity" min="1" />
+            </div>
+
+            <div class="form-group">
+                <label class="text-white font-semibold">Payment Mode</label>
+                <div class="payment-radio">
+                    <label>
+                        <input type="radio" name="payment" value="cod" required /> Cash on Delivery
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="productCode">Product Code</label>
+                <input type="text" id="productCode" name="productCode" required placeholder="e.g., PROD-12345" />
+                <p class="description-text">Product code is located below your image.</p>
+            </div>
+
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</body>
+</html>
